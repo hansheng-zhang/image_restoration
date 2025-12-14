@@ -9,6 +9,8 @@
 
 - `image_dehaze/`  
   Image dehazing
+  
+  *Independent implementation by Ruolan Shi*
 
 # Low-Light Image Enhancement (Contributor: Hansheng Zhang)
 
@@ -85,3 +87,160 @@ This will generate visualizations (boxplots, bar charts) and a summary CSV in th
 - **Enhanced Images**: Saved in the configured `output_dir`.
 - **Metrics**: A `metrics.csv` file inside the `output_dir`.
 - **Analysis**: Plots and summary tables in the `analysis_results` folder.
+
+
+
+# Image Dehazing
+
+This module provides a **unified and reproducible evaluation pipeline** for classical image dehazing methods on both **benchmark datasets with ground truth** and **real-world hazy images without reference**.
+
+The design emphasizes:
+- Clear separation of dehazing methods
+- Reproducible evaluation and comparison
+- A lightweight repository (datasets and pretrained weights are not tracked)
+
+---
+
+## Implemented Methods
+
+The following image dehazing methods are implemented and evaluated:
+
+- **CLAHE**  
+  Contrast Limited Adaptive Histogram Equalization
+
+- **DCP**  
+  Dark Channel Prior
+
+- **RIDCP**  
+  Refinement-based Image Dehazing via Dark Channel Prior
+
+
+## External Code Attribution (RIDCP)
+
+The RIDCP implementation used in this project is adapted from the following open-source repository:
+
+- **RQ-Wu et al., RIDCP Dehazing**  
+  https://github.com/RQ-Wu/RIDCP_dehazing
+
+Only the **core RIDCP code** is included under: dehaze/external/RIDCP_dehazing/
+
+The following components from the original repository are excluded:
+
+Datasets
+
+Pretrained weights
+
+Result folders
+
+This keeps the repository lightweight and focused on evaluation.
+
+## Datasets and Data Preparation
+
+This repository does **not** include datasets or pretrained weights.  
+All data must be downloaded and placed locally.
+
+### 1. I-HAZE and O-HAZE (With Ground Truth)
+
+The I-HAZE and O-HAZE datasets are used for **full-reference quantitative evaluation**, including:
+
+- PSNR
+- SSIM
+- Color difference ΔE₀₀
+
+**I-HAZE (Indoor scenes)**  
+https://data.vision.ee.ethz.ch/cvl/ntire18/i-haze/
+
+**O-HAZE (Outdoor scenes)**  
+https://data.vision.ee.ethz.ch/cvl/ntire18/o-haze/
+
+Expected directory layout after downloading:
+
+```text
+dehaze/data/raw/ihaze/
+├── hazy/
+└── gt/
+
+dehaze/data/raw/ohaze/
+├── hazy/
+└── gt/
+```
+
+
+
+## How to Run
+
+All scripts should be executed **from the repository root** to ensure correct module imports.
+
+Before running any script, make sure that:
+- Required datasets are downloaded and placed in the expected directories
+- RIDCP pretrained weights are available if running RIDCP
+- The Python environment is properly set up
+
+---
+
+### 1. Setup Environment
+
+Install dependencies
+
+### 2. Run Dehazing on Benchmark Datasets
+
+The following scripts run dehazing methods on the **I-HAZE** and **O-HAZE** datasets and compute **full-reference metrics** (PSNR, SSIM, ΔE₀₀).
+
+Run **CLAHE**:
+
+```bash
+python dehaze/scripts/run_clahe.py
+```
+Run **DCP**:
+
+```bash
+python dehaze/scripts/run_dcp.py
+```
+Run **RIDCP**:
+(make sure pretrained weights are placed under dehaze/external/RIDCP_dehazing/pretrained_models/):
+```bash
+python dehaze/scripts/run_ridcp.py
+```
+### 3. Run Evaluation on Real-World Images (No Reference)
+
+Real-world hazy images are evaluated using the **BRISQUE** no-reference quality metric.
+
+Place images under:
+
+```text
+dehaze/data/real_haze/
+```
+Run evaluation:
+```text
+python dehaze/scripts/run_realworld.py
+```
+
+Generate combined comparison tables and plots:
+```text
+python dehaze/scripts/analyze_realworld.py
+```
+
+### 4. Generate Comparison Tables and Plots
+
+After running all methods, you can generate aggregated comparison results.
+
+Merge per-method metrics:
+
+```bash
+python dehaze/scripts/compare_all.py
+```
+Generate comparison plots (PSNR / SSIM / ΔE):
+
+```bash
+python dehaze/scripts/plot_all.py
+```
+
+### 5. License and Acknowledgements
+
+- **Revitalizing Real Image Dehazing via High-Quality Codebook Priors (RIDCP)**:  
+  https://github.com/RQ-Wu/RIDCP_dehazing
+
+- **I-HAZE / O-HAZE datasets**:  
+  I-HAZE: https://data.vision.ee.ethz.ch/cvl/ntire18/i-haze/
+  
+  O-HAZE: https://data.vision.ee.ethz.ch/cvl/ntire18/o-haze/
