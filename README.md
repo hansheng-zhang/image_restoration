@@ -126,11 +126,11 @@ Only the **core RIDCP code** is included under: dehaze/external/RIDCP_dehazing/
 
 The following components from the original repository are excluded:
 
-Datasets
+1. Datasets
 
-Pretrained weights
+2. Pretrained weights
 
-Result folders
+3. Result folders
 
 This keeps the repository lightweight and focused on evaluation.
 
