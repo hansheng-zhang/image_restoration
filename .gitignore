@@ -207,3 +207,7 @@ marimo/_lsp/
 __marimo__/
 
 .DS_Store
+
+# 取消对数据集 target 目录的忽略（只针对 derain/data 下）
+!derain/data/**/target/
+!derain/data/**/target/**
