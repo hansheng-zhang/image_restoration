@@ -1,4 +1,4 @@
-# Image Enhancement Project Structure
+# 🔑 Image Enhancement Project Structure
 
 - `low_light/`
 
@@ -6,19 +6,19 @@
 
   *Independent implementation by Hansheng Zhang*
 - `dehaze/`
-  
+
   Image dehazing
 
   *Independent implementation by Ruolan Shi*
 - `derain/`
-  
+
   Image deraining
-  
+
   *Independent implementation by Liang Yang*
 
 ---
-  
-# PART A: LOW-LIGHT IMAGE ENHANCEMENT (Contributor: Hansheng Zhang)
+
+# 🔦 PART A: LOW-LIGHT IMAGE ENHANCEMENT (Contributor: Hansheng Zhang)
 
 This repository implements a framework for low-light image enhancement, comparing CLAHE and Retinex. It includes tools for processing images and analyzing performance metrics.
 
@@ -104,7 +104,7 @@ This will generate visualizations (boxplots, bar charts) and a summary CSV in th
 
 ---
 
-# PART B: IMAGE DEHAZING
+# 🌫️ PART B: IMAGE DEHAZING
 
 This module provides a **unified and reproducible evaluation pipeline** for classical image dehazing methods on both **benchmark datasets with ground truth** and **real-world hazy images without reference**.
 
@@ -253,10 +253,9 @@ python dehaze/scripts/plot_all.py
 
   O-HAZE: https://data.vision.ee.ethz.ch/cvl/ntire18/o-haze/
 
-
 ---
 
-# PART C: IMAGE DERAIN (Contributor: Liang Yang)
+# 🌧️ PART C: IMAGE DERAIN (Contributor: Liang Yang)
 
 This part compares a fast classical baseline (Guided Filter) with a learning–based Progressive Residual Network (PRN) on four public rain-removal benchmark datasets.
 All code and notebooks live in `derain/`.
