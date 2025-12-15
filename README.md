@@ -1,13 +1,20 @@
 # Image Enhancement Project Structure
 
-- `low_light/`Low-light image enhancement*Independent implementation by Hansheng Zhang*
+- `low_light/`
+
+  Low-light image enhancement
+
+  *Independent implementation by Hansheng Zhang*
 - `dehaze/`
+  
   Image dehazing
+
   *Independent implementation by Ruolan Shi*
 - `derain/`
+  
   Image deraining
-  Independent implementation by *Liang Yang*
-
+  
+  *Independent implementation by Liang Yang*
 # PART A: LOW-LIGHT IMAGE ENHANCEMENT (Contributor: Hansheng Zhang)
 
 This repository implements a framework for low-light image enhancement, comparing CLAHE and Retinex. It includes tools for processing images and analyzing performance metrics.
