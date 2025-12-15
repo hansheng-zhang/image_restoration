@@ -8,7 +8,7 @@
   Image deraining
   Independent implementation by *Liang Yang*
 
-# Low-Light Image Enhancement (Contributor: Hansheng Zhang)
+# PART A: LOW-LIGHT IMAGE ENHANCEMENT (Contributor: Hansheng Zhang)
 
 This repository implements a framework for low-light image enhancement, comparing CLAHE and Retinex. It includes tools for processing images and analyzing performance metrics.
 
@@ -92,7 +92,7 @@ This will generate visualizations (boxplots, bar charts) and a summary CSV in th
 - **Metrics**: A `metrics.csv` file inside the `output_dir`.
 - **Analysis**: Plots and summary tables in the `analysis_results` folder.
 
-# Image Dehazing
+# PART B: IMAGE DEHAZING
 
 This module provides a **unified and reproducible evaluation pipeline** for classical image dehazing methods on both **benchmark datasets with ground truth** and **real-world hazy images without reference**.
 
@@ -245,12 +245,15 @@ python dehaze/scripts/plot_all.py
 
   O-HAZE: https://data.vision.ee.ethz.ch/cvl/ntire18/o-haze/
 
-## Image Derain
+
+---
+
+# PART C: IMAGE DERAIN (Contributor: Liang Yang)
 
 This part compares a fast classical baseline (Guided Filter) with a learning–based Progressive Residual Network (PRN) on four public rain-removal benchmark datasets.
 All code and notebooks live in `derain/`.
 
-### 1. Download Dataset and Place them to the Correct Directory
+## 1. Download Dataset and Place them to the Correct Directory
 
 In order to run the image derain project, please download the dataset from the link provided, and place the unzip data into the corresponding directory mentioned in the "Dataset Processing Notes" column
 
@@ -262,7 +265,7 @@ In order to run the image derain project, please download the dataset from the l
 | **Rain200L**                 | train&nbsp;/&nbsp;validation | [Baidu Netdisk Download link ](https://pan.baidu.com/s/1rTb4qU3fCEA4MRpQss__DA?pwd=s2yx) (Extraction Code: `s2yx`)              | Download using the "Extraction Code", and extract the `input/` and `target/` folders within the unzip Rain200L file to `derain/data/Rain200L/train/input/` and `derain/data/Rain200L/train/target/` correspondingly                                 |
 | **Rain200H**                 | train&nbsp;/&nbsp;validation | [Baidu Netdisk Download link ](https://pan.baidu.com/share/init?surl=KK8R2bPKgcOX8gMXSuKtCQ&pwd=z9br) (Extraction Code: `z9br`) | Download using the "Extraction Code", and extract the `input/` and `target/` folders within the unzip Rain200H file to `derain/data/Rain200H/train/input/` and `derain/data/Rain200H/train/target/` correspondingly                                  |
 
-### 2. Dependencies checklist
+## 2. Dependencies checklist
 
 | Package                                        | Purpose                                                          |
 | ---------------------------------------------- | ---------------------------------------------------------------- |
@@ -275,7 +278,7 @@ In order to run the image derain project, please download the dataset from the l
 | **matplotlib**                           | quick visualisation utilities inside the notebooks               |
 | **tqdm**                                 | progress bars during PRN training/inference                      |
 
-### 3. Run the Code
+## 3. Run the Code
 
 The source code scripts and the complete data pipeline (Data preprocessing, model training and model inferencing and evaluation) for both PRN and Guided Filter are arranged in Python Jupyter Notebook.
 
@@ -285,7 +288,7 @@ The code for PRN is in `derain/derain_prn.ipynb`
 
 Run the notebooks cell-by-cell and end-to-end to reproduce the results and see the output images
 
-### 4. Outputs
+## 4. Outputs
 
 Running the derain notebooks `derain/derain_gf.ipynb` and `derain/derain_prn.ipyn` will create this folder tree (for clarity, we already create this tree structure):
 
