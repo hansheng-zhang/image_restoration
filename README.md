@@ -15,6 +15,9 @@
   Image deraining
   
   *Independent implementation by Liang Yang*
+
+---
+  
 # PART A: LOW-LIGHT IMAGE ENHANCEMENT (Contributor: Hansheng Zhang)
 
 This repository implements a framework for low-light image enhancement, comparing CLAHE and Retinex. It includes tools for processing images and analyzing performance metrics.
