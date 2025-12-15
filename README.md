@@ -145,7 +145,7 @@ This keeps the repository lightweight and focused on evaluation.
 This repository does **not** include datasets or pretrained weights.
 All data must be downloaded and placed locally.
 
-### 1. I-HAZE and O-HAZE (With Ground Truth)
+### I-HAZE and O-HAZE (With Ground Truth)
 
 The I-HAZE and O-HAZE datasets are used for **full-reference quantitative evaluation**, including:
 
