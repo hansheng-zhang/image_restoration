@@ -92,6 +92,8 @@ This will generate visualizations (boxplots, bar charts) and a summary CSV in th
 - **Metrics**: A `metrics.csv` file inside the `output_dir`.
 - **Analysis**: Plots and summary tables in the `analysis_results` folder.
 
+---
+
 # PART B: IMAGE DEHAZING
 
 This module provides a **unified and reproducible evaluation pipeline** for classical image dehazing methods on both **benchmark datasets with ground truth** and **real-world hazy images without reference**.
@@ -101,8 +103,6 @@ The design emphasizes:
 - Clear separation of dehazing methods
 - Reproducible evaluation and comparison
 - A lightweight repository (datasets and pretrained weights are not tracked)
-
----
 
 ## Implemented Methods
 
@@ -170,8 +170,6 @@ Before running any script, make sure that:
 - Required datasets are downloaded and placed in the expected directories
 - RIDCP pretrained weights are available if running RIDCP
 - The Python environment is properly set up
-
----
 
 ### 1. Setup Environment
 
